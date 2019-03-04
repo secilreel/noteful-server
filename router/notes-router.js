@@ -2,7 +2,6 @@
 const express = require('express');
 const notesRouter = express.Router();
 const notes = require('../service/notes-service');
-const NotesService = require('../service/notes-service');
 const xss = require('xss');
 
 function sanitize(note) {
@@ -24,23 +23,21 @@ notesRouter.route('/noteful')
       .then((data => {
         res.json(data.map(sanitize));
       }));
-  });
-
-notesRouter.route('/add-note')
+  })
   .post((req, res) => {
-    const { id, name, modified, folderId, content } = req.body;
+    const { id, name, modified, folderid, content } = req.body;
 
     const note = {
       id,
       name,
       modified,
-      folderId,
+      folderid,
       content
     };
     const db = req.app.get('db');
 
     notes.insertNote(db, note).then(resjson => {
-      res.status(200).json(resjson);
+      res.status(201).json(resjson);
     });
   });
 
