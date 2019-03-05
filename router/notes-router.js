@@ -59,13 +59,15 @@ notesRouter.route('/note/:id')
   .delete((req, res) => {
     const db = req.app.get('db');
 
-    return notes.deleteNote(db, req.params.id).then(resjson => {
-      if (resjson === 1) {
-        res.status(204).end();
-      } else {
-        res.status(404).end();
-      }
-    });
+    return notes
+      .deleteNote(db, req.params.id)
+      .then(resjson => {
+        if (resjson === 1) {
+          res.status(204).end();
+        } else {
+          res.status(404).end();
+        }
+      });
   })
   .patch((req, res) =>{
     const db = req.app.get('db');
@@ -74,9 +76,11 @@ notesRouter.route('/note/:id')
       return res.status(400).end();
     }
 
-    return notes.updateNote(db,req.params.id, req.body).then(() => {
-      res.status(204).end();
-    });
+    return notes
+      .updateNote(db,req.params.id, req.body)
+      .then(() => {
+        res.status(204).end();
+      });
   });
 
 module.exports = notesRouter;

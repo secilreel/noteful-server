@@ -1,3 +1,5 @@
+-- psql -U secilreel -d noteful -f ./src/seed.noteful.sql
+
 BEGIN;
 
 INSERT INTO folders
@@ -7,9 +9,8 @@ VALUES
     (124, 'Super'),
     (125, 'Spangley');
 
+ALTER SEQUENCE folders_id_seq RESTART WITH 126;
 COMMIT;
-
--- ALTER SEQUENCE folders_id_seq RESTART WITH 126;
   
 BEGIN;
 
@@ -31,4 +32,5 @@ VALUES
     (13, 'Turtles', '2018-09-11T23:00:00.000Z', 124, 'Fugiat dolores et nostrum laborum id delectus sint reiciendis. Recusandae nulla repellendus. Labore eum hic nesciunt enim corporis necessitatibus. Iusto pariatur aut qui blanditiis.\n \rTempore et vel ut maxime et reprehenderit deleniti esse officia. Laboriosam et reiciendis distinctio qui enim. Amet suscipit sit.\n \rVitae id impedit reprehenderit eveniet nesciunt et soluta. Labore aliquam sed dolores voluptatibus est omnis quo molestias aut. Dolor optio sed alias excepturi delectus aut consequuntur veniam nemo.'),
     (14, 'Zebras', '2018-08-13T23:00:00.000Z', 124, 'Veritatis porro minima perspiciatis. Repellat veniam quo iste ut. Iusto voluptas quae quibusdam. Odit neque iusto cupiditate iste quam. Fuga itaque aut praesentium ullam saepe ut et vero.\n \rQuisquam doloremque molestiae. Enim rerum dolorem et velit itaque magnam laborum. Aut officiis porro.\n \rQuae eum eaque error. Sed itaque ipsam nam provident aut voluptate. Perferendis repudiandae sequi laudantium est est animi eum. Unde alias et doloribus est hic et. Sed distinctio incidunt maiores aut voluptatibus et omnis mollitia fugit.');
 
-    COMMIT;
+ALTER SEQUENCE notes_id_seq RESTART WITH 15;
+COMMIT;

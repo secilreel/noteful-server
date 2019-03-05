@@ -32,9 +32,7 @@ foldersRouter.route('/folder')
       .then((data => {
         res.json(data.map(sanitize));
       }));
-  });
-
-foldersRouter.route('/add-folder')
+  })
   .post((req, res) => {
     const { id, name } = req.body;
 
