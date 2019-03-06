@@ -29,7 +29,8 @@ const NotesService = {
   updateNote(knex, id, newNoteFields) {
     return knex('notes')
       .where({ id })
-      .update(newNoteFields);
+      .update(newNoteFields)
+      .returning('*');
   },
 
 };

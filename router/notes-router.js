@@ -78,8 +78,8 @@ notesRouter.route('/note/:id')
 
     return notes
       .updateNote(db,req.params.id, req.body)
-      .then(() => {
-        res.status(204).end();
+      .then(resjson => {
+        res.status(201).json(resjson);
       });
   });
 

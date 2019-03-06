@@ -1,3 +1,5 @@
+-- psql -U secilreel -d noteful -f ./migrations/001.do.create-table.sql
+
 DROP TABLE IF EXISTS notes, folders;
 -- DROP TABLE IF EXISTS notes;
 
